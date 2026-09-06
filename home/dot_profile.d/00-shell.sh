@@ -5,5 +5,8 @@ bind 'set vi-ins-mode-string "\1\e[32m\2\1\e[0m\2 "'
 
 export EDITOR=nvim
 
+TTY="$(tty)"
+export GPG_TTY="$TTY"
+
 SHELL_TYPE="bash"
 export SHELL_TYPE
