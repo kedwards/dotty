@@ -1,7 +1,12 @@
 onboarding = false
+
 [ui]
 agent_panel_sort = "priority"
 show_agent_labels_on_pane_borders = false
+
+### herdr-automatic-rename
+# herdr plugin action invoke herdr-automatic-rename.reset
+prompt_new_tab_name = false
 
 [theme]
 name = "terminal"
@@ -10,80 +15,172 @@ auto_switch = false
 [worktrees]
 directory = "~/projects"
 
-# herdr-nvim
+### herdr-nvim
 [[keys.command]]
 key = "prefix+e"
 type = "plugin_action"
 command = "chmarax.herdr-nvim.toggle"
 description = "nvim sidebar"
-# herdr-nvim pickfile
+
 [[keys.command]]
 key = "prefix+o"
 type = "plugin_action"
 command = "chmarax.herdr-nvim.pick-file"
 description = "open file from agent output"
 
-# herdr-golden-ratio
-[[keys.command]]
-key = "prefix+shift+f"
-type = "plugin_action"
-command = "vv.golden-ratio.apply"
-description = "golden ratio"
-
-# herdr-gitview
-[[keys.command]]
-key = "prefix+shift+g"
-type = "plugin_action"
-command = "chmarax.gitview.toggle"
-description = "git view sidebar"
-
-# herdr-lazy plugin manager
+### herdr-lazy plugin manager
+# herdr plugin pane open --plugin herdr-lazy --entrypoint manage --focus
 [[keys.command]]
 key = "prefix+shift+l"
 type = "plugin_action"
 command = "herdr-lazy.manage"
 description = "manage plugins"
 
-# herdr-sessionizer
+### herdr-navigator
+# herdr plugin action invoke herdr-navigator.open
+[[keys.command]]
+key = "prefix+t"
+type = "plugin_action"
+command = "herdr-navigator.open"
+description = "jump to anything"
+
+### herdr-sessionizer
+# herdr plugin action invoke sessionizer.open
+# herdr plugin action invoke sessionizer.worktree-open
 [[keys.command]]
 key = "prefix+f"
 type = "plugin_action"
 command = "sessionizer.open"
 description = "open project workspace"
-# herdr-sessionizer
+
 [[keys.command]]
 key = "prefix+up"
 type = "plugin_action"
 command = "sessionizer.worktree-open"
 description = "open worktree workspace"
 
-# herdr-scratch
-[[keys.command]]
-key = "prefix+p"
-type = "plugin_action"
-command = "herdr.scratch.toggle"
-description = "toggle scratchpad"
-
-[[keys.command]]
-key = "prefix+shift+p"
-type = "plugin_action"
-command = "herdr.scratch.list"
-description = "list scratchpads"
-
+### herdr-lazygit
 [[keys.command]]
 key = "prefix+g"
 type = "plugin_action"
-command = "herdr.scratch.lazygit"
-description = "toggle lazygit scratchpad"
+command = "herdr-lazygit.open"
+
+# [[keys.command]]
+# key = "prefix+shift+g"
+# type = "plugin_action"
+# command = "herdr-lazygit.open-tab"
+
+### herdr-gitview
+[[keys.command]]
+key = "prefix+shift+g"
+type = "plugin_action"
+command = "chmarax.gitview.toggle"
+description = "git view sidebar"
+
+### herdr-bar
+[[keys.command]]
+key = "prefix+k"
+type = "plugin_action"
+command = "herdr-bar.open"
+description = "command bar"
+
+### herdr-warp
+# open a warp pane (split right of the focused pane, same cwd)
+# herdr plugin action invoke open --plugin herdr.warp
+#
+# send it a prompt: select text in any pane, then
+# herdr plugin action invoke send --plugin herdr.warp
+[[keys.command]]
+key = "prefix+w"
+type = "plugin_action"
+command = "herdr.warp.open"
+description = "send selection to warp"
+
+### herdr-keymap
+[[keys.command]]
+key = "prefix+m"
+type = "plugin_action"
+command = "tds.keymap.open_palette"
+description = "Keybindings palette"
+
+### herdr-splits.nvim
+[[keys.command]]
+key = "ctrl+h"
+type = "plugin_action"
+command = "herdr-splits.nav-left"
 
 [[keys.command]]
-key = "prefix+n"
+key = "ctrl+j"
 type = "plugin_action"
-command = "herdr.scratch.notes"
-description = "toggle notes scratchpad"
+command = "herdr-splits.nav-down"
 
 [[keys.command]]
-key = "prefix+t"
+key = "ctrl+k"
 type = "plugin_action"
-command = "herdr-navigator.open"
-description = "jump to anything"
+command = "herdr-splits.nav-up"
+
+# [[keys.command]]
+# key = "crtl+l"
+# type = "plugin_action"
+# command = "herdr-splits.nav-right"
+
+[[keys.command]]
+key = "alt+up"
+type = "plugin_action"
+command = "herdr-splits.resize-left"
+
+[[keys.command]]
+key = "alt+j"
+type = "plugin_action"
+command = "herdr-splits.resize-down"
+
+[[keys.command]]
+key = "alt+k"
+type = "plugin_action"
+command = "herdr-splits.resize-up"
+
+[[keys.command]]
+key = "alt+l"
+type = "plugin_action"
+command = "herdr-splits.resize-right"
+
+### herdr-plugin-echo
+[[keys.command]]
+key = "prefix+alt+m"
+type = "plugin_action"
+command = "herdr-plugin-echo.mark"
+description = "echo: toggle focused pane"
+
+[[keys.command]]
+key = "prefix+shift+m"
+type = "plugin_action"
+command = "herdr-plugin-echo.mark-all"
+description = "echo: toggle all panes in tab"
+
+[[keys.command]]
+key = "prefix+shift+e"
+type = "plugin_action"
+command = "herdr-plugin-echo.broadcast"
+description = "echo: toggle broadcast pane"
+
+### herdr-awst
+# herdr plugin action invoke herdr-awst.login
+# herdr plugin action invoke herdr-awst.logout
+# herdr plugin action invoke herdr-awst.connect
+[[keys.command]]
+key = "prefix+a"
+type = "plugin_action"
+command = "herdr-awst.login"
+description = "awst login"
+
+[[keys.command]]
+key = "prefix+shift+a"
+type = "plugin_action"
+command = "herdr-awst.logout"
+description = "awst logout"
+
+[[keys.command]]
+key = "prefix+shift+c"
+type = "plugin_action"
+command = "herdr-awst.connect"
+description = "awst connect"
